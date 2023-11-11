@@ -1,0 +1,22 @@
+{% if user %}
+
+{% include 'header_lk' %}
+<div class="lk">
+	
+	<section class="lk-empls" id="lk-empls">
+		<div class="container">
+			
+				<div style="width:100%;text-align:center;font-size:20px;">Раздел в разработке</div>
+			
+		</div>
+	</section>
+
+</div>
+
+{% include 'footer_lk' %}
+
+{% else %}
+	<script>
+		location.href = location.origin + '/?login=yes'
+	</script>
+{% endif %}

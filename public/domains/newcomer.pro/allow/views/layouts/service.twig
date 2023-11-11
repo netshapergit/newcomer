@@ -1,0 +1,43 @@
+{% include 'header' %}
+<main>
+	<div class="container">
+		<ol class="breadcrumbs list-reset" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+			<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+				<a class="breadcrumbs__link" itemprop="item" href="/">
+					<span itemprop="name">Главная</span></a>
+				<meta itemprop="position" content="1">
+			</li>
+			<li class="" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+				<a class="breadcrumbs__link" itemprop="item" href="/uslugi">
+					<span itemprop="name">Наши услуги</span></a>
+				<meta itemprop="position" content="2">
+			</li>
+			<li class="" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+				<a class="breadcrumbs__current" itemprop="item" href="#">
+					<span itemprop="name">{$ page.field_header $}</span></a>
+				<meta itemprop="position" content="3">
+			</li>
+		</ol>
+	</div>
+	<section class="service">
+		<div class="container">
+			<div class="service__number-box">
+				<div style="display:flex; align-items:center;justify-content:space-between;">
+				<h1 class="service__title title">
+					{$ page.field_header $}
+				</h1>
+				{% if page.field_price %}
+					<p style="font-size:20px;margin: 0;"><b>{$ page.field_price $} ₽</b></p>
+				{% endif %}
+				<button class="btn__header btn-reset pc-btn" data-path="callback" data-animation="fadeInUp" data-speed="200">Заказать</button>
+					</div>
+			</div>
+			<p class="service__descr">
+				{$ page.field_content|raw $}
+			</p>
+		</div>
+	</section>
+
+</main>
+
+{% include 'footer' %}

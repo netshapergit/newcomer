@@ -1,0 +1,94 @@
+{% if user %}
+
+{% set objects = [] %}
+
+{% for item in page.active_sub_pages.sortBy('created_at')|reverse %}
+	{% set obj = {
+		id: item.id,
+		field_header: item.field_header,
+		field_synology: item.field_synology,
+		path: item.path,
+		field_image: item.field_image
+	} %}
+	{% set objects = objects|merge([obj]) %}
+{% endfor %}
+
+{% include 'header_lk' %}
+<div class="lk" id="lk" data-user-id="{$ user.id $}">
+	<section class="lk-objects" id="lk-objects" data-json="{$ objects|json_encode() $}">
+		<div class="container">
+			<div class="lk-objects-search">
+				<input type="text" class="lk-objects-search__input lk-edit-input" v-model="searchQuery" placeholder="Поиск по названию объекта">
+			</div>
+			<div class="lk-objects-list">
+				{% if user.field_is_employee %}
+				{% if not user.field_is_not_editor %}
+				<div class="lk-objects-list-item lk-objects-list-item--add" @click.stop="isNewItemFormShowed = true">
+					<svg fill="#ffffff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="nofill"><path d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z"></path></svg>
+				</div>
+				{% endif %}
+				{% endif %}
+				<lk-object v-for="item in filteredObjects" :item="item" :key="item.id"></lk-object>
+			</div>
+		</div>
+		<div class="lk-modal" v-show="isNewItemFormShowed" v-cloak>
+			<div class="lk-modal__wrapper">
+				<div class="lk-modal__inner">
+					<div class="lk-modal__closer" @click.stop="isNewItemFormShowed = false"></div>
+					<div class="lk-modal__top">
+						<div class="lk-modal__title">
+							Создать новый объект
+						</div>
+						<div class="lk-modal__content">
+							<form id="js-create-item-form" ref="new-item-form" class="form hidden" data-action="/user/pages" method="post" @submit.prevent="onNewObjectFormSubmit">
+								<input class="form-control field--under" name="user_id" style="display:none;" placeholder="Пользователь" type="text" value="{$ user.id $}">
+								<input class="form-control field--border" name="layout_id" style="display:none;" placeholder="Макет" type="text" value="14">
+								<input class="form-control field--border" name="parent_page_id" style="display:none;" placeholder="Верхняя страница" type="text" value="{$ page.id $}">
+								
+								<input class="form-control field--under" name="alias" placeholder="Алиас" type="text" :value="newObjectAlias" id="alias">
+								<input class="form-control field--border" name="title" placeholder="Заголовок окна" type="text" :value="newObject.title" id="title">
+								<input class="form-control field--border" name="field_header" type="text" :value="newObject.title" placeholder="Название">
+								<input class="form-control field--border" name="field_image" type="text" :value="newObject.image" placeholder="Изображение">
+								<input class="form-control field--border" name="field_synology" type="text" :value="newObject.field_synology" placeholder="Название">
+								
+								<button type="submit" ref="new-item-form-submit-btn">save</button>
+							</form>
+							<div class="new-object">
+								<div class="lk-input__group">
+									<div class="lk-input">
+										<div class="lk-input__label">Название</div> 
+										<input type="text" v-model="newObject.title" class="lk-input__input">
+									</div> 
+									<div class="lk-input">
+										<div class="lk-input__label">Изображение</div> 
+										<input v-if="!newObject.image" value="Загрузить" type="button" @click.stop="onNewObjectFormImageButtonClick" class="lk-input__input lk-btn--color-blue">
+										<img v-else :src="'/site/data/images/medium/' + newObject.image" @click.stop="onNewObjectFormImageButtonClick">
+										<input type="file" class="hidden" ref="lk-object-new" id="lk-object-new" @change.stop="$event => onImageUpload($event)">
+									</div>
+									<div class="lk-input">
+										<div class="lk-input__label">Ссылка на Synology</div> 
+										<input type="text" v-model="newObject.field_synology" class="lk-input__input">
+									</div> 
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="lk-modal__bottom">
+						<button :disabled="!newObjectAlias.length" @click.stop="onNewObjectFormSubmitButtonClick" class="lk-btn lk-btn--color-blue">Создать</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</section>
+</div>
+
+
+<script src="/site/theme/js/translit.js"></script>
+{% include 'footer_lk' %}
+
+{% else %}
+	<script>
+		location.href = location.origin + '/?login=yes'
+	</script>
+{% endif %}

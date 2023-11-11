@@ -1,0 +1,358 @@
+body {
+	font-family: 'PT Sans', sans-serif;
+	--purple: #3E0F8A;
+}
+
+.nc-hero {
+	background: url(/site/theme/images/n_hero_bg.jpg) no-repeat center / cover;
+	position: relative;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.cont {
+	max-width: 1200px;
+}
+
+.nc-hero__content {
+	position: relative;
+	z-index: 1;
+}
+
+.nc-hero__header {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+	color: #fff;
+}
+
+.nc-logo-link {
+	font-size: 30px;
+	font-weight: 700;
+	line-height: 39px;
+	letter-spacing: 0.15em;
+}
+
+.nc-logo-link a {
+	display: flex;
+}
+
+.nc-contacts {
+	display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nc-phone {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px;
+    letter-spacing: 0em;
+}
+
+.nc-hero-auth {
+    display: flex;
+    align-items: center;
+}
+
+.nc-hero__header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+	padding-top: 20px;
+}
+
+.nc-hero__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.nc-hero__text {
+    text-align: right;
+}
+
+.hc-hero__title {
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 78px;
+    letter-spacing: 0.15em;
+    text-align: right;
+    color: #fff;
+}
+
+.nc-hero__astronaut img {
+	animation: astronaut 2s infinite alternate ease-in-out;
+}
+
+@keyframes astronaut {
+	to {
+		transform: translateY(30px);
+	}
+}
+
+.nc-hero__line {
+    position: absolute;
+    bottom: 0;
+	left: 0;
+    width: 100%;
+	display: flex;
+}
+
+.nc-hero__line--white {
+	transform: translateY(125px);
+}
+
+.nc-hero__line svg {
+	width: 100%;
+	height: 100%;
+}
+
+.nbtn {
+    border: none;
+    --mbtn-bg: linear-gradient(119.78deg, #7F31FF 5.17%, #CF00DF 65.8%, #FF56A5 140.53%);;
+    --mbtn-bg-hover: linear-gradient(119.78deg, #7F31FF 5.17%, #CF00DF 65.8%, #FF56A5 140.53%);
+    --mbtn-color: #fff;
+    --mbtn-color-hover: #fff;
+    background: var(--mbtn-bg);
+    color: var(--mbtn-color);
+	box-shadow: 0px 20px 10px -10px #00000033;
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    min-width: 100px;
+    border-radius: 20px;
+    transition: .2s;
+    outline: none;
+    cursor: pointer;
+    line-height: normal;
+	font-family: PT Sans;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 18px;
+	letter-spacing: 0.05em;
+}
+
+.nbtn:hover {
+    color: var(--mbtn-color-hover);
+    background: var(--mbtn-bg-hover);
+}
+
+.nc-onb {
+	padding: 50px 0;
+}
+
+.nc-onb__wrapper {
+	position: relative;
+}
+
+.nc-onb__content {
+	position: relative;
+	z-index: 1;
+}
+
+.nc-section__subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 23px;
+    letter-spacing: 0.15em;
+    text-align: left;
+    color: var(--purple);
+}
+
+.nc-section__subtitle--white {
+    color: #fff;
+}
+
+.nc-section__title {
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 45px;
+    letter-spacing: 0.15em;
+    text-align: left;
+    color: var(--purple);
+}
+
+.nc-section__title--white {
+    color: #fff;
+}
+
+.nc-section__title div {
+	position: relative;
+	display: inline-block;
+}
+
+.nc-section__title div span{
+	position: relative;
+	z-index: 1;
+}
+
+.nc-section__title div:before {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 30%;
+	height: 15px;
+	background: #F3C4FF;
+	left: -5px;
+	bottom: 5px;
+}
+
+.nc-section__title--white div:before {
+	background: #CF00DF;
+}
+
+.nc-list {
+    font-family: PT Sans;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 31px;
+    letter-spacing: 0em;
+    text-align: left;
+    padding-left: 24px;
+    color: var(--purple);
+    max-width: 500px;
+}
+
+.nc-team {
+    color: var(--purple);
+}
+
+.nc-team__title {
+    font-family: PT Sans;
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 45px;
+    letter-spacing: 0.15em;
+    text-align: left;
+}
+
+.nc-team__blocks {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 600px;
+	margin-top: 15px;
+}
+
+.nc-team__block {
+    text-align: center;
+    /* font-family: PT Sans; */
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0.15em;
+    /* text-align: center; */
+}
+
+.nc-team__block--borders {
+	border-left: 1px solid var(--purple);
+	border-right: 1px solid var(--purple);
+}
+
+.nc-team__block-title {
+    /* font-family: PT Sans; */
+    font-size: 65px;
+    font-weight: 700;
+    line-height: 84px;
+    letter-spacing: 0.05em;
+    /* text-align: left; */
+}
+
+.nc-team__preboarding {
+    display: flex;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.nc-team__preboarding-badge {
+    width: 281px;
+    height: 137px;
+    position: relative;
+}
+
+.nc-team__preboarding-badge__bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.nc-team__preboarding-badge__text {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* font-family: PT Sans; */
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 0.1em;
+    text-align: left;
+    color: var(--purple);
+    padding: 25px 35px;
+}
+
+.nc-onb__img {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.nc-tasks {
+	padding: 50px 0;
+}
+
+.nc-tasks__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    grid-gap: 30px;
+}
+
+.nc-tasks__an {
+    position: relative;
+}
+
+.nc-tasks__an-main {
+    position: absolute;
+    top: -30px;
+	animation: astronaut 1s infinite alternate ease-in-out; 
+}
+
+.nc-tasks__text-desc {
+    font-family: PT Sans;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 31px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: var(--purple);
+    margin-top: 15px;
+}
+
+.nc-news {
+	background: url(/site/theme/images/n_news_bg.jpg) no-repeat center / cover;
+	padding: 100px 0;
+}
+
+.footer {
+    margin-top: -280px;
+	display: flex;
+}
+
+.footer img {
+	width: 100%;
+}
+
+
+
+
+
+
+

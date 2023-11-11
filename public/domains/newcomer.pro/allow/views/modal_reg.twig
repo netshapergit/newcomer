@@ -1,0 +1,54 @@
+<div class="modal" data-modal="reg">
+	<div class="cont">
+		<div class="modal__wrapper">
+			<div class="modal__inner">
+				<button class="modal__closer">×</button>
+				<div class="modal__content">
+					<form action="/register" class="auth js-reg-form" method="post">
+						<h2 class="form__title title-medium">Регистрация</h2>
+						<div class="form__wrapper">
+							<div class="form-group">
+								<div class="form-group-input">
+									<label class="form-label">Логин (лат. буквы и цифры)</label>
+									<input class="form__data form-control" name="login" type="text" pattern="[a-zA-Z0-9]+" required>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group-input">
+									<label class="form-label">E-mail</label>
+									<input class="form__data form-control" name="email" required="" type="email" value="">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group-input">
+									<label class="form-label">ФИО</label>
+									<input class="form__data form-control" name="field_fullname" required="" type="text" value="">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group-input">
+									<label class="form-label">Пароль</label>
+									<input class="form__data form-control" minlength="8" name="password" placeholder="" type="password">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group-input">
+									<label class="form-label">Подтверждение</label>
+									<input class="form__data form-control" minlength="8" name="password_confirmation" placeholder="" type="password">
+								</div>
+							</div>
+							
+							<div class="form-group form-group--tac">
+								<button class="mbtn" type="submit">Регистрация</button>
+							</div>
+
+							<div class="form-group hidden">
+								<a href="#" class="mbtn mbtn--flat js-pas">Забыли пароль?</a>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

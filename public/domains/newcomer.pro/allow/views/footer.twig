@@ -1,0 +1,90 @@
+<footer class="footer">
+    <div class="container">
+		
+        <div class="footer__box">
+            <p class="footer__copywriting">
+                NetShaper
+            </p>
+            <a class="footer__link" href="#">
+				
+            </a>
+        </div>
+    </div>
+</footer>
+
+<div class="modal" data-modal="login">
+	<div class="modal__container">
+        <button class="modal-close">×</button>
+        <div class="modal__content">
+            <form action="/auth/login" class="auth js-auth-form" method="post">
+				<h2 class="form__title title-medium">Вход в ЛК</h2>
+				<div>
+					<button class="js-test-auth" type="button" data-login="admin" data-password="12345678">admin</button>
+					<button class="js-test-auth" type="button" data-login="teacher" data-password="12345678">teacher</button>
+					<button class="js-test-auth" type="button" data-login="student" data-password="12345678">student</button>
+				</div>
+				<div class="form__wrapper">
+					<label class="form-label">	
+						<input class="form__data form-control" name="login" placeholder="Логин" type="text" value="">
+					</label>
+					<label class="form-label">
+						<input class="form__data form-control" name="password" placeholder="Пароль" type="password">
+					</label>
+					
+					<div class="form-group">
+						<button class="form__button btn btn-main btn-reset" type="submit">Войти</button>
+					</div>
+					
+					<div class="form-group">
+						<a href="#" class="mbtn mbtn--flat js-reg">Зарегистрироваться</a>
+					</div>
+					<div class="form-group hidden">
+						<a href="#" class="mbtn mbtn--flat js-pas">Забыли пароль?</a>
+					</div>
+				</div>
+			</form>
+        </div>
+    </div>
+	<div class="modal__container" data-target="reg">
+        <button class="modal-close">×</button>
+        <div class="modal__content">
+            <form action="/register" class="auth js-reg-form" method="post">
+				<h2 class="form__title title-medium">Регистрация</h2>
+				<div class="form__wrapper">
+					<label class="form-label">	
+						<input class="form__data form-control" name="login" placeholder="Логин" type="text" value="">
+					</label>
+					<label class="form-label">
+						<input class="form__data form-control" name="email" placeholder="E-mail" required="" type="email" value="">
+					</label>
+					<label class="form-label">
+						<input class="form__data form-control" name="password" placeholder="Пароль" type="password">
+					</label>
+					<label class="form-label">
+						<input class="form__data form-control" name="password_confirmation" placeholder="Подтверждение" type="password">
+					</label>
+					<div class="form-group">
+						<button class="form__button btn btn-main btn-reset" type="submit">Зарегистрироваться</button>
+					</div>
+					
+					<div class="form-group hidden">
+						<a href="#" class="mbtn mbtn--flat js-pas">Забыли пароль?</a>
+					</div>
+				</div>
+			</form>
+        </div>
+    </div>
+</div>
+
+<!--div class="modal" style="--transition-time: 0.2s;">
+    
+</div-->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/site/theme/js/swiper.js"></script>
+<script src="/site/theme/js/validate.js"></script>
+<script src="/site/theme/js/inputmask.js"></script>
+<script src="/site/theme/js/swipercontrol.js"></script>
+<script src="/site/theme/js/base1.js"></script>
+<script src="/site/theme/js/main1.js"></script>

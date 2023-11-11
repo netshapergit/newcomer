@@ -1,0 +1,75 @@
+{% include 'header_lk' %}
+
+<div class="lk" data-user-id="{$ user.id $}">
+	<div class="lk__layout">
+		<div class="lk-menu">
+			{% include 'menu_lk' with {rolename: user.role.name} %}
+		</div>
+		<div class="lk-content">
+			<div class="lk-content-header">
+				<div class="lk-content-header__block">
+					<h1>Сообщения</h1>
+				</div>
+				<div class="divider"></div>
+				<div class="lk-content-header__block">
+					<input type="text" placeholder="Поиск" v-model="search" class="q-input">
+				</div>
+			</div>
+			
+			<div class="lk-qlist">
+				<div class="lk-qlist-item lk-qlist-item--room" v-for="room in rooms" :key="room.id" @click.stop="setSelectedRoom(room)">
+					<div class="lk-qlist-item__block">
+						<div class="lk-qlist-item__title">
+							{{room.from_name}}
+							<span class="pin" v-if="roomUnreadMessages(room).length"></span>
+						</div>
+					</div>
+					<div class="lk-qlist-item__block">
+						
+					</div>
+				</div>
+			</div>
+			
+			<div class="modal modal--chat modal--vue" v-show="selectedRoom" v-cloak>
+				<div class="cont">
+					<div class="modal__wrapper">
+						<div class="modal__inner modal__inner--content">
+							<button class="modal__closer" @click="selectedRoom = false">×</button>
+							<div class="modal__content">
+								<div class="lk-chat">
+									<div class="lk-chat__title">{{selectedRoom.from_name}}</div>
+									<div class="lk-chat__messages">
+										<div 
+											 class="lk-chat-msg" 
+											 v-for="msg in selectedRoom.items" 
+											 :key="msg.id"
+											 :class="{'lk-chat-msg--own': msg.from_id == USER.id}"
+											 >
+											<div class="lk-chat-msg__body">
+												<div class="lk-chat-msg__title" v-if="msg.page">
+													Тема: <a :href="msg.page.path" target="_blank">{{msg.page.field_header}}</a>
+												</div>
+												<div class="lk-chat-msg__content">
+													{{msg.text}}
+													<span class="pin" v-if="!Number(msg.is_read) && msg.from_id != USER.id"></span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="lk-chat__input">
+										<input type="text" class="q-input" v-model="newMessage">
+										<button class="mbtn mbtn--color-orange" type="button" @click.stop="send">Отправить</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+{% include 'footer_lk' %}
+<script src="/site/theme/js/lk_messages.js" type="module"></script>

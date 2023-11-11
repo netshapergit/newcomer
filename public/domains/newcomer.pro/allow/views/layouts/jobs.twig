@@ -1,0 +1,244 @@
+{% include 'header' %}
+<main>
+	<div class="container">
+		<ol class="breadcrumbs list-reset" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+			<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+				<a class="breadcrumbs__link" itemprop="item" href="/">
+					<span itemprop="name">Главная</span></a>
+				<meta itemprop="position" content="1">
+			</li>
+			<li class="" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+				<a class="breadcrumbs__current" itemprop="item" href="#">
+					<span itemprop="name">Вакансии</span></a>
+				<meta itemprop="position" content="2">
+			</li>
+		</ol>
+	</div>
+	{% set items = page.active_sub_pages %}
+	
+	<section class="service">
+		<div class="container">
+			<div class="service__number-box">
+				<h1 class="service__title title">
+					Вакансии
+				</h1>
+				<span class="service__number">
+					
+					{$ items|length $}
+					
+				</span>
+			</div>
+			<!--p class="service__descr">
+				Профессиональные сотрудники с
+				опытом выполняют задачи точно, качественно и&nbsp;в&nbsp;срок
+			</p-->
+			<ul class="service__list list-reset">
+			
+				{% for item in items %}
+				<li class="service__item">
+					<div class="service__body">
+						<!--div class="service__img-box">
+							<a href="{$ item.path $}">
+								<img class="service__img" src="/site/data/images/large/{$ item.field_image $}" alt="{$ item.field_header $}">
+							</a>
+						</div-->
+						<div class="service__content">
+							<h2><a href="{$ item.path $}">{$ item.field_header $}</a></h2>
+							
+							<p>{$ item.field_summary $}</p><Br>
+							<div style="display:flex; align-items:center;justify-content:space-between;">
+								{% if item.field_price %}
+								<p style="font-size:20px;"><b>{$ item.field_price $} ₽</b></p>
+								{% endif %}
+								<a href="{$ item.path $}" class="btn__header btn-reset pc-btn">Подробнее</a>
+							</div>
+						</div>
+					</div>
+				</li>
+				{% endfor %}
+				{#
+				<li class="service__item">
+					<div class="service__body">
+						<div class="service__img-box">
+							<img class="service__img" src="/site/theme/images/2013598.jpg" alt="Инженерно-геодезические изыскания">
+						</div>
+						<div class="service__content">
+							<h2>
+								Инженерно-геодезические изыскания								</h2>
+							<p>
+								</p><p>Комплекс работ по составлению топографического плана разных масштабов для проектирования зданий и сооружений</p>								<p></p>
+						</div>
+					</div>
+				</li>
+				
+					
+				<li class="service__item">
+					<div class="service__body">
+						<div class="service__img-box">
+							<img class="service__img" src="/site/theme/images/1916050.jpg" alt="Геотехнический мониторинг">
+						</div>
+						<div class="service__content">
+							<h2>
+								Геотехнический мониторинг								</h2>
+							<p>
+								</p><p>Комплекс наблюдений за состоянием окружающих и строящихся зданий и сооружений для обеспечения безопасности строительства</p>								<p></p>
+						</div>
+					</div>
+				</li>
+				
+					
+				<li class="service__item">
+					<div class="service__body">
+						<div class="service__img-box">
+							<img class="service__img" src="/site/theme/images/187624.jpg" alt="Геотехнические изыскания">
+						</div>
+						<div class="service__content">
+							<h2>
+								Геотехнические изыскания								</h2>
+							<p>
+								</p><p>Мероприятия по изучению свойств грунтовых массивов, оценка влияния строительства, оценка устойчивости</p>								<p></p>
+						</div>
+					</div>
+				</li>
+				
+					
+				<li class="service__item">
+					<div class="service__body">
+						<div class="service__img-box">
+							<img class="service__img" src="/site/theme/images/1717371.jpg" alt="Геодезическое сопровождение строительства">
+						</div>
+						<div class="service__content">
+							<h2>
+								Геодезическое сопровождение строительства								</h2>
+							<p>
+								</p><p>Комплекс измерений, вычислений и&nbsp;построений в&nbsp;чертежах и&nbsp;натуре обеспечивающий правильное и точное размещение зданий</p>								<p></p>
+						</div>
+					</div>
+				</li>
+				
+					
+				<li class="service__item">
+					<div class="service__body">
+						<div class="service__img-box">
+							<img class="service__img" src="/site/theme/images/1627320.jpg" alt="Аэрофотосъемка местности">
+						</div>
+						<div class="service__content">
+							<h2>
+								Аэрофотосъемка местности								</h2>
+							<p>
+								</p><p>Фото территории или объекта при помощи беспилотного летательного аппарата для получения ортофотоплана или мониторинга за ходом СМР</p>								<p></p>
+						</div>
+					</div>
+				</li>
+				
+					
+				<li class="service__item">
+					<div class="service__body">
+						<div class="service__img-box">
+							<img class="service__img" src="/site/theme/images/1515163.jpg" alt="Обследование зданий и сооружений">
+						</div>
+						<div class="service__content">
+							<h2>
+								Обследование зданий и сооружений								</h2>
+							<p>
+								</p><p>Комплекс работ по оценке технического состояния строительных конструкций для реконструкции, демонтажа, оценки влияния нового строительства</p>								<p></p>
+						</div>
+					</div>
+				</li>
+				
+					
+				<li class="service__item">
+					<div class="service__body">
+						<div class="service__img-box">
+							<img class="service__img" src="/site/theme/images/145788.jpg" alt="Работа с ГБУ «Мосгоргеотрест»">
+						</div>
+						<div class="service__content">
+							<h2>
+								Работа с ГБУ «Мосгоргеотрест»								</h2>
+							<p>
+								</p><p>Организация сотрудничества "под ключ": заключение договоров, документооборот, осуществление вызовов, сопровождение исполнительной документации, загрузки, получение согласований</p>								<p></p>
+						</div>
+					</div>
+				</li>
+				
+					
+				<li class="service__item">
+					<div class="service__body">
+						<div class="service__img-box">
+							<img class="service__img" src="/site/theme/images/1314832.jpg" alt="Работа с «МосгорБТИ»">
+						</div>
+						<div class="service__content">
+							<h2>
+								Работа с «МосгорБТИ»								</h2>
+							<p>
+								</p><p>Организация сотрудничества "под ключ": заключение договора, документооборот, организация работ на объекте, корректировка проектной документации, контроль технической инвентаризации, контроль кадастровых работ</p>								<p></p>
+						</div>
+					</div>
+				</li>
+				
+				#}
+				
+			</ul>
+		</div>
+	</section>
+
+	<section class="question">
+		<div class="container">
+			<div class="question__img-box">
+				<img class="question__img" src="/site/theme/images/question_img.jpg" alt="">
+			</div>
+			<form action="../mail.php" enctype="multipart/form-data" class="question__form" method="POST">
+				<input type="hidden" name="form_subject" value="Заявка">
+				<input type="hidden" name="admin_email[]" value="info@v-es.ru">
+				<div class="question__content">
+					<h2 class="question__title title">Остались вопросы?</h2>
+					<p class="question__descr">
+						Заполните форму обратной связи, и&nbsp;мы&nbsp;свяжемся с&nbsp;Вами, чтобы ответить на&nbsp;все вопросы
+					</p>
+				</div>
+				<div class="question__boby">
+					<label class="">
+						<span class="visually-hidden">Введите свое имя</span>
+						<input class="question__data" type="text" name="Имя" placeholder="Введите свое имя">
+					</label>
+					<label class="">
+						<span class="visually-hidden">Введите свой e-mail</span>
+						<input class="question__data" type="email" name="Емейл" placeholder="Введите свой e-mail" required="">
+					</label>
+					<label class="">
+						<span class="visually-hidden">Введите свой телефон</span>
+						<input class="question__data" type="tel" name="Телефон" placeholder="Введите свой телефон" required="" inputmode="text">
+					</label>
+					<div class="select-wrapper">
+						<label class="select-label">
+							<span class="visually-hidden">Выбрать услугу</span>
+							<select class="question__data ">
+								<option value="любая">Любая услуга</option>
+								<option value="Инженерно-геологические изыскания">Инженерно-геологические изыскания
+								</option>
+								<option value="Инженерно-геодезические изыскания">Инженерно-геодезические изыскания
+								</option>
+								<option value="Геотехнические изыскания">Геотехнические изыскания</option>
+								<option value="Геодезическое сопровождение строительства">Геодезическое
+									сопровождение строительства</option>
+								<option value="Аэрофотосъемка местности">Аэрофотосъемка местности</option>
+								<option value="Обследование зданий и сооружений">Обследование зданий и&nbsp;сооружений
+								</option>
+								<option value="Работа с ГБУ «Мосгоргеотрест»">Работа с&nbsp;ГБУ «Мосгоргеотрест»</option>
+								<option value="Работа с «МосгорБТИ»">Работа с&nbsp;«МосгорБТИ»</option>
+							</select>
+						</label>
+					</div>
+				</div>
+				<div class="question__btn-box">
+					<button class="question__btn btn-main btn btn-reset" type="submit">Отправить</button>
+				</div>
+				<p class="form-text">
+					Нажимая кнопку «Отправить», Вы&nbsp;даете согласие на&nbsp;<a class="form__personal-link" href="#">обработку персональных данных</a>
+				</p>
+			</form>
+		</div>
+	</section>
+</main>
+
+{% include 'footer' %}
